@@ -1,4 +1,9 @@
+using MySqlConnector;
+
+
 namespace HairSalon.Models
+
+
 {
   public class Client
   {
