@@ -1,0 +1,22 @@
+@{
+  Layout = "_Layout";
+}
+
+@model HairSalon.Models.Stylist
+@using HairSalon.Models
+
+<h2><u>Information</u></h2>
+
+<p>@Html.DisplayFor(model => model.Name)</p>
+<p>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</p>
+<p>@Html.DisplayNameFor(model => model.Hired): @Html.DisplayFor(model => model.Hired)</p>
+
+<button>@Html.ActionLink("Edit Stylist", "Edit", new { id = Model.StylistId})</button>
+<button>@Html.ActionLink("Delete Stylist", "Edit", new { id = Model.StylistId})</button>
+<button>@Html.ActionLink("Back To Stylist", "Index")</button>
+
+<h4>Clients</h4>
+@foreach(Client client in Model.Clients)
+{
+  <li>@Html.ActionLink($"{client.Name}", "Details", "Clients", new {id = client.ClientId})</li>
+}
