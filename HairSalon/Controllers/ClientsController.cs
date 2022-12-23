@@ -7,11 +7,11 @@ using System.Linq;
 
 namespace HairSalon.Controllers
 {
-  public class CuisinesController : Controller
+  public class ClientsController : Controller
   {
     private readonly HairSalonContext _db;
 
-    public CuisinesController(HairSalonContext db)
+    public ClientsController(HairSalonContext db)
     {
       _db = db;
     }
@@ -19,7 +19,7 @@ namespace HairSalon.Controllers
     public ActionResult Index() //Index to client view
     {
       List<Client> model = _db.Clients //creates list of clients thats equal to the database results of Clients
-                           .Include(client => client.StylistId)  //includes
+                           .Include(client => client.Stylist)  //includes
                            .ToList();
       return View(model);
     }
@@ -44,8 +44,8 @@ namespace HairSalon.Controllers
     public ActionResult Details(int id)
     {
       Client thisClient = _db.Clients
-                          .Include(Client => Client.ClientId)
-                          .FirstOrDefault(Client => Client.ClientId == id);
+                          .Include(client => client.ClientId)
+                          .FirstOrDefault(client => client.ClientId == id);
       return View(thisClient);
     }
 
@@ -66,14 +66,14 @@ namespace HairSalon.Controllers
 
     public ActionResult Delete(int id)
     {
-      Client thisClient = _db.Clients.FirstOrDefault(client => client.StylistId == id);
+      Client thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
       return View(thisClient);
     }
 
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
-      Client thisClient = _db.Clients.FirstOrDefault(client => client.StylistId == id);
+      Client thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
       _db.Clients.Remove(thisClient);
       _db.SaveChanges();
       return RedirectToAction("Index");
