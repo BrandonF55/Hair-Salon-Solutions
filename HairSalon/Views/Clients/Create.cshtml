@@ -1,0 +1,22 @@
+@{
+  Layout = "_Layout";
+}
+
+@model HairSalon.Models.Client
+
+@using (Html.BeginForm())
+{
+ @Html.TextBoxFor(model => model.Name, new { placeholder = "Name"})
+
+ @Html.TextBoxFor(model => model.Regular, new { placeholder = "Regular"})
+
+ @Html.TextBoxFor(model => model.Last, new { placeholder = "Last"})
+
+@Html.TextBoxFor(model => model.Total, new { placeholder = "Total"})
+
+
+@Html.DropDownList("StylistId")
+<br><br>
+<button type="submit">Add Clients</button>
+<br><br>
+}
