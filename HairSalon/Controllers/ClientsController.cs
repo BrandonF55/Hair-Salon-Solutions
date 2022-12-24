@@ -16,11 +16,11 @@ namespace HairSalon.Controllers
       _db = db;
     }
 
-    public ActionResult Index() //Index to client view
+      public ActionResult Index()
     {
-      List<Client> model = _db.Clients //creates list of clients thats equal to the database results of Clients
-                           .Include(client => client.Stylist)  //includes
-                           .ToList();
+      List<Client> model = _db.Clients
+                                .Include(client => client.Stylist)
+                                .ToList();
       return View(model);
     }
 
@@ -30,7 +30,8 @@ namespace HairSalon.Controllers
       return View();
     }
 
-    public ActionResult Create(Client client)
+      [HttpPost]
+      public ActionResult Create(Client client)
     {
       if (client.StylistId == 0) //checks if StylistId for the clients element is 0
       {
@@ -44,7 +45,7 @@ namespace HairSalon.Controllers
     public ActionResult Details(int id)
     {
       Client thisClient = _db.Clients
-                          .Include(client => client.ClientId)
+                          .Include(client => client.Stylist)
                           .FirstOrDefault(client => client.ClientId == id);
       return View(thisClient);
     }
@@ -66,15 +67,15 @@ namespace HairSalon.Controllers
 
     public ActionResult Delete(int id)
     {
-      Client thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
-      return View(thisClient);
+      Client deleteClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
+      return View(deleteClient);
     }
 
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
-      Client thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
-      _db.Clients.Remove(thisClient);
+      Client deleteClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
+      _db.Clients.Remove(deleteClient);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
