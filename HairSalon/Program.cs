@@ -13,8 +13,7 @@ namespace HairSalon
 
       builder.Services.AddControllersWithViews();
 
-      // Used with ToDoListContext.cs in Models
-      builder.Services.AddDbContext<HairSalonContext>(
+      builder.Services.AddDbContext<HairSalonContext>( 
                         dbContextOptions => dbContextOptions
                           .UseMySql(
                             builder.Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(builder.Configuration["ConnectionStrings:DefaultConnection"]

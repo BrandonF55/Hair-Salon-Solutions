@@ -13,6 +13,6 @@ namespace HairSalon.Models
     public string Last { get; set; }
     public int Total { get; set; }
     public int StylistId { get; set; }
-    public virtual Stylist Stylist { get; set; }
+    public Stylist Stylist { get; set; }
   }
 }
