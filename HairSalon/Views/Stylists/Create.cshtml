@@ -3,12 +3,13 @@
 }
 @model HairSalon.Models.Stylist
 
-<h2><u>Add Stylist</u></h2>
+<h2><u>Add New Stylist</u></h2>
 
 @using (Html.BeginForm())
 {
-  @Html.TextBoxFor(model => model.Name, new { placeholder = "Name"})
-  @Html.TextBoxFor(model => model.Hired, new { placeholder = "Hired"})
-  <br>
-  <button type="submit"> Add</button>
+  @Html.TextBoxFor(model => model.Name, new { placeholder = "First Name:"})
+  <br><br>
+  @Html.TextBoxFor(model => model.Hired, new { placeholder = "Hired:"})
+  <br><br>
+  <button class="btn btn-danger btn-lg" type="submit"> Add</button>
 }

@@ -4,19 +4,21 @@
 
 @model HairSalon.Models.Client
 
+<h1><u>Add New Client</u></h1>
+
 @using (Html.BeginForm())
 {
- @Html.TextBoxFor(model => model.Name, new { placeholder = "Name"})
+ @Html.TextBoxFor(model => model.Name, new { placeholder = "First Name:"})<br><br>
 
- @Html.TextBoxFor(model => model.Regular, new { placeholder = "Regular"})
+ @Html.TextBoxFor(model => model.Regular, new { placeholder = "Last Name:"})<br><br>
 
- @Html.TextBoxFor(model => model.Last, new { placeholder = "Last"})
+ @Html.TextBoxFor(model => model.Last, new { placeholder = "Regular:"})<br><br>
 
-@Html.TextBoxFor(model => model.Total, new { placeholder = "Total"})
+@Html.TextBoxFor(model => model.Total, new { placeholder = "Total Price:"})<br><br>
 
-
+<br>
 @Html.DropDownList("StylistId")
 <br><br>
-<button type="submit">Add Clients</button>
+<button class="btn btn-danger btn-lg" type="submit">Add Clients</button>
 <br><br>
 }
