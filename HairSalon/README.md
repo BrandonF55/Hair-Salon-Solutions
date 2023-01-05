@@ -39,7 +39,7 @@ Enter the following into the file:
 
     {
       "ConnectionStrings": {
-          "DefaultConnection": "Server=localhost;Port=3306;database=bodie_wood;uid=[YOUR-USER-HERE];pwd=[YOUR-PASSWORD-HERE];"
+          "DefaultConnection": "Server=localhost;Port=3306;database=brandon_fenk;uid=[YOUR-USER-HERE];pwd=[YOUR-PASSWORD-HERE];"
       }
   }
 Make sure to set uid and pwd
