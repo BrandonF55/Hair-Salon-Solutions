@@ -42,6 +42,7 @@ Enter the following into the file:
           "DefaultConnection": "Server=localhost;Port=3306;database=brandon_fenk;uid=[YOUR-USER-HERE];pwd=[YOUR-PASSWORD-HERE];"
       }
   }
+  
 Make sure to set uid and pwd
 Open MySQL and select Administration select Data Import
 Check Import from self contained file option and enter file path of the HairSalon Database, then start import
